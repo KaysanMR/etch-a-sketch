@@ -6,19 +6,14 @@ const slider = document.getElementById("gridSize");
 const field = document.querySelector(".inputNumber");
 const clearButton = document.getElementById("clear");
 const mode = document.querySelectorAll("input[name=mode]")
-let currentMode = draw;
 let resolution = slider.value;
 
-grid.addEventListener("mousemove", currentMode);
 grid.addEventListener("dragstart", (e) => e.preventDefault());
-
+grid.addEventListener("mousemove", draw);
 clearButton.addEventListener("click",() => createGrid(resolution));
 
 mode.forEach((e) => {
-    e.addEventListener("click", () => {
-        if (e.value == "draw") currentMode = draw;
-        else if (e.value == "erase") currentMode = erase;
-    });
+    switchMode(e);
 });
 
 updateResolution();
@@ -35,6 +30,23 @@ function createGrid() {
     };
 };
 
+function switchMode(e) {
+    e.addEventListener("click", () => {
+        switch (e.value) {
+            case "draw":
+                grid.removeEventListener("mousemove", erase);
+                grid.addEventListener("mousemove", draw);
+                console.log("now drawing");
+                break;
+            case "erase":
+                grid.removeEventListener("mousemove", draw);
+                grid.addEventListener("mousemove", erase);
+                console.log("now erasing");
+                break;
+        }
+    });
+};
+
 function draw(e) {
     if (e.buttons !== 1) return;
     e.target.style.backgroundColor = "black"; 
@@ -42,7 +54,7 @@ function draw(e) {
 };
 function erase(e) {
     if (e.buttons !== 1) return;
-    e.target.style.backgroundColor = ""; 
+    e.target.style.backgroundColor = "white"; 
     e.target.style.borderColor = "hsla(1,0%,0%,12%)"; 
 };
 
