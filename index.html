@@ -6,23 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header><h1>Etch-A-Sketch</h1></header>
-    <div class="options flex">
-        <ul class="flex">
-            <li><input type="radio" id="draw" name="mode" value="draw" checked>draw</li>
-            <li><input type="radio" id="erase" name="mode" value="erase">erase</li>
-            <li><button id="clear">clear</button></li>
-        </ul>
-        
-
-    </div>
-    <div id="grid"></div>
-    <div class="slidecontainer">
-        <input type="number" min="2" max="100" value="16" class="inputNumber" />
-        <input type="range" min="2" max="100" value="16" class="slider" id="gridSize">
+    <div class="content">
+        <div class="options">
+                    <label>
+                        <input type="radio" id="draw" name="mode" value="draw" checked>
+                        <img src="images/edit-pencil-line-02-svgrepo-com.svg" alt="draw" width="35px">
+                    </label>
+                    <label>
+                        <input type="radio" id="erase" name="mode" value="erase">
+                        <img src="images/eraser-svgrepo-com.svg" alt="erase" width="35px">
+                    </label>
+                    <button id="clear">
+                        <img src="images/reset-svgrepo-com.svg" alt="clear" width="25px">
+                    </button>
+        </div>
+        <div id="grid"></div>   
+        <div class="slidecontainer">
+            <input type="number" min="2" max="100" value="16" class="inputNumber" />
+            <input type="range" min="2" max="100" value="16" class="slider" id="gridSize">
+        </div>
     </div>
 </body>
 </html>

@@ -1,15 +1,20 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-
+h1 {
+    margin: 20% 0;
+}
 body {
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100dvh;
     align-items: center;
     margin: 0;
-}
-.flex {
-    display: flex;
 }
 
 #grid {
@@ -28,9 +33,32 @@ body {
     border: 0.5px solid hsla(1,0%,0%,12%);
 }
 
-.options ul{
-    padding: 0;
-    list-style-type: none;
-    flex-direction: row;
-    gap: 5px;
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+img {
+    transition: all 500ms;
+}
+
+input[type="radio"]:checked ~ img {
+    filter: invert(54%) sepia(65%) saturate(608%) hue-rotate(81deg) brightness(96%) contrast(89%);
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0 7px;
+}
+
+button:hover ~ img {
+    filter: invert(54%) sepia(65%) saturate(608%) hue-rotate(81deg) brightness(96%) contrast(89%);
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
 }
