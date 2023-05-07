@@ -62,3 +62,29 @@ button:hover ~ img {
     justify-content: flex-end;
     gap: 8px;
 }
+
+.slidecontainer {
+    padding: 1rem 0;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    flex: 1;
+    appearance: none;
+    accent-color: rgb(36, 199, 98);
+    border: none;
+    background-size: ;
+    background-color: hsl(0, 0%, 93%);
+    border-radius: 1rem;
+}
+
+.inputNumber {
+    border: 2px solid hsla(1,0%,0%,12%);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    box-shadow: 0px 4px 5px hsla(1,0%,0%,12%);
+}
