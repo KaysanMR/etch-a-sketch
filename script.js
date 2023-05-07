@@ -1,21 +1,22 @@
-
+//Etch-A-Sketch by KaysanMR
 
 const grid = document.querySelector('#grid');
 const divWidth = grid.offsetWidth;
-let resolution = 2;
-
+const slider = document.getElementById("gridSize");
+const field = document.querySelector(".inputNumber");
+const clearButton = document.getElementById("clear");
+let resolution = slider.value;
 
 grid.addEventListener("mousemove", draw);
 grid.addEventListener("dragstart", (e) => e.preventDefault());
 
-const slider = document.getElementById("gridSize");
-const field = document.querySelector(".inputNumber")
+clearButton.addEventListener("click",() => createGrid(resolution));
 
 updateResolution();
-
 createGrid(resolution);
 
 function createGrid() {
+    grid.innerHTML = "";
     grid.style.setProperty('--grid-rows', resolution);
     grid.style.setProperty('--grid-cols', resolution);
     for (i = 0; i < (resolution ** 2); i++) {
@@ -36,12 +37,13 @@ function updateResolution() {
         field.value = slider.value;
         resolution = slider.value;
         console.log(resolution);
+        createGrid(resolution);
     };
 
     field.onchange = () => {
         slider.value = field.value;
         resolution = field.value;
         console.log(resolution);
+        createGrid(resolution);
     };
 }
-
