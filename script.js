@@ -2,7 +2,7 @@
 
 const grid = document.querySelector('#grid');
 const divWidth = grid.offsetWidth;
-// const size = document.getElementById('gridSize').oninput = () => this.value;
+let resolution = 16;
 
 function createGrid(res) {
     grid.style.setProperty('--grid-rows', res);
@@ -13,11 +13,23 @@ function createGrid(res) {
     };
 };
 
-createGrid(100);
 
 function draw(e) {
+    e.stopPropagation();
     if (e.buttons !== 1) return;
-     e.target.style.backgroundColor = "black"; 
+    e.target.style.backgroundColor = "black"; 
+    e.target.style.borderColor = "black"; 
 };
 
 grid.addEventListener("mousemove", draw);
+grid.addEventListener("dragstart", (e) => e.preventDefault());
+
+const size = document.getElementById("gridSize");
+
+size.oninput = () => {
+    resolution = size.value;
+    console.log(resolution);
+}
+
+createGrid(resolution);
+
