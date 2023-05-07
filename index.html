@@ -10,7 +10,12 @@
 </head>
 <body>
     <div class="options flex">
-        <button id="clear">clear</button>
+        <ul class="flex">
+            <li><input type="radio" id="draw" name="mode" value="draw" checked>draw</li>
+            <li><input type="radio" id="erase" name="mode" value="erase">erase</li>
+            <li><button id="clear">clear</button></li>
+        </ul>
+        
 
     </div>
     <div id="grid"></div>
