@@ -13,8 +13,11 @@ function createGrid(res) {
     };
 };
 
-createGrid(4);
+createGrid(100);
 
-grid.addEventListener("click", (cell) => {
-    cell.target.style.backgroundColor = "black";
-});
+function draw(e) {
+    if (e.buttons !== 1) return;
+     e.target.style.backgroundColor = "black"; 
+};
+
+grid.addEventListener("mousemove", draw);
