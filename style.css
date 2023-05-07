@@ -14,7 +14,6 @@ body {
 
 .flex {
     display: flex;
-    flex-direction: row;
 }
 
 #grid {
@@ -32,4 +31,13 @@ body {
 
 .cell {
     border: 0.5px solid hsla(1,0%,0%,12%);
+}
+
+.options {
+    flex-direction: row;
+}
+
+#clear {
+    margin: 1rem;
+    align-items: left;
 }
