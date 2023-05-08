@@ -54,7 +54,7 @@ function draw(e) {
 };
 function erase(e) {
     if (e.buttons !== 1) return;
-    e.target.style.backgroundColor = "white"; 
+    e.target.style.backgroundColor = ""; 
     e.target.style.borderColor = "hsla(1,0%,0%,12%)"; 
 };
 
